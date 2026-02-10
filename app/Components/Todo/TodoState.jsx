@@ -11,6 +11,22 @@ const [getInputValue,setGetInputValue] = useState("")
 const [editedInputValue,setEditedInputValue] = useState("")
 
 
+const getData = ()=>{
+
+
+
+}
+
+useEffect(()=>{
+
+const getLocal = localStorage.getItem('myData')
+getLocal ? setData(JSON.parse(getLocal)) : setData([])
+
+
+},[])
+
+
+useEffect(() => { localStorage.setItem("myData", JSON.stringify(data)); }, [data]);
 
 //*** DUPLICATED CODE */
 const getInputTextValue = (e)=>{
@@ -31,6 +47,9 @@ const addTodoItem = ()=>{
   const idForItem = Date.now()
   setData(prev => ([...prev,{id:idForItem,name:getInputValue,editMode:false  }]))
 setGetInputValue("")
+
+
+console.log(localStorage,data)
 }
 
 
@@ -65,6 +84,11 @@ const submitOnEnter = (e)=>{
 
 e.code === "Enter" ? addTodoItem() : null
 
+}
+
+const deleteItems = ()=>{
+
+  
 }
 
   return (
