@@ -1,38 +1,38 @@
 "use client"
 
 import {useState,useEffect} from 'react'
-import AddTodoItem from "./AddTodoItem"
+import InputDetails from "./InputDetails"
 import ShowTodoItems from "./ShowTodoItems"
 export default function TodoState() {
 
 const [data,setData]= useState([])
 
-const [todoItemInfo,setTotoItemInfo] = useState({
-    getInputValue:"",
-    editModeInputValue:""
+const [getInputValue,setGetInputValue] = useState()
+const [editedInputValue,setEditedInputValue] = useState()
     
-})
+
 
 
 const getInputTextValue = (e)=>{
-  setTotoItemInfo(prev =>({...prev, getInputValue:(e.target.value)}))
+  setGetInputValue(e.target.value)
 
 }
 
 
 const addTodoItem = ()=>{
   const idForItem = Date.now()
-  setData(prev => ([...prev,{id:idForItem,name:todoItemInfo.getInputValue  }]))
-console.log(data)
+  setData(prev => ([...prev,{id:idForItem,name:getInputValue  }]))
+setGetInputValue("")
 }
 
   return (
     <div>
 
         <h2> Todo List</h2>
-        <AddTodoItem 
-        getInputText={getInputTextValue}
-        submitCta={addTodoItem}
+        <InputDetails 
+        value={getInputValue}
+        onChange={getInputTextValue}
+        onSubmit={addTodoItem}
         />
 
         <ShowTodoItems data={data}/>

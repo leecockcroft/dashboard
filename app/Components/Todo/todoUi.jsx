@@ -36,13 +36,13 @@ export default function Example() {
         <aside className="sticky top-8 hidden w-44 shrink-0 lg:block">
 
 
-<TodoState/>
+
 
 
 
         </aside>
 
-        <main className="flex-1">{/* Main area */}</main>
+        <main className="flex-1"><TodoState/></main>
 
         <aside className="sticky top-8 hidden w-96 shrink-0 xl:block">{/* Right column area */}</aside>
       </div>
