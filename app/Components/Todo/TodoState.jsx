@@ -61,6 +61,12 @@ setData(prev => prev.map(item => (
 
 }
 
+const submitOnEnter = (e)=>{
+
+e.code === "Enter" ? addTodoItem() : null
+
+}
+
   return (
     <div>
 
@@ -70,6 +76,7 @@ setData(prev => prev.map(item => (
         onChange={getInputTextValue}
         onSubmit={addTodoItem}
         title={'Add Item'}
+        onKeyDown={submitOnEnter}
         />
 
         <ShowTodoItems data={data}
