@@ -7,7 +7,7 @@ export default function ShowTodoItems({data,edit,onChange,value,onSubmit}) {
       <ul>
 {data.map((item,index)=>(
 
-<li key={item.id}> 
+<li key={item.id} className={item.editMode ? "active" : "notactive"}> 
   
   {item.editMode ? <InputDetails title="save" id={item.id} onSubmit={onSubmit} onChange={onChange} value={value} /> :(
 

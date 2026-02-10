@@ -9,7 +9,7 @@ const [data,setData]= useState([])
 
 const [getInputValue,setGetInputValue] = useState("")
 const [editedInputValue,setEditedInputValue] = useState("")
-    
+
 
 
 //*** DUPLICATED CODE */
