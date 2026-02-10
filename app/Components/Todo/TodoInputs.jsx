@@ -1,10 +1,11 @@
-export default function AddTodoItem({getInputText,submitCta,title,props}) {
+
+
+
+export default function AddTodoItem({submitCta,title,onChange,value}) {
   return (
     <>
-         <input type="text"
-          onChange={onChange}> 
-          <button onClick={submitCta}> 
-            {title}</button>     
+         <input type="text" value={value}onChange={onChange}/> 
+          <button onClick={submitCta}> {title}</button>     
     </>
   );
 }
