@@ -22,7 +22,7 @@ const getInputTextValue = (e)=>{
 
 const addTodoItem = ()=>{
   const idForItem = Date.now()
-  setData(prev => ([...prev,{id:idForItem,name:todoItemInfo.getInputValue  }]))
+  setData(prev => ([{...prev,id:idForItem,name:todoItemInfo.getInputValue  }]))
 console.log(data)
 }
 
