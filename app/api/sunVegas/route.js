@@ -3,6 +3,14 @@ import * as XLSX from "xlsx";
 import path from "path";
 import fs from "fs";
 
+
+const terms = `testing the terms`
+
+
+
+
+
+
 function buildHtml(data) {
   return `
  <!DOCTYPE html>
@@ -246,109 +254,7 @@ function buildHtml(data) {
                     <div class="copy-holder">
                         <h3>Frequently asked questions</h3>
                         <div class="faqs-holder">
-                            <div class="faq">
-                                <h4>What is the Promotion and how do I qualify?</h4>
-                                <p>
-                                    Newly registered players can claim 10 free spins at 10p per spin that can be used on
-                                    Eligible Games. Players will need to register to receive the free spins. Newly
-                                    registered players can then deposit and spend £10 to receive 100 Extra Spins at 10
-                                    per spin that can also be used on Eligible Games.
-                                </p>
-                                <p>Offer Ends 30.04.26.</p>
-                            </div>
-
-                            <div class="faq">
-                                <h4>Who is eligible?</h4>
-                                <p>
-                                    Newly registered players, who have not previously opened a thesunvegas.co.uk
-                                    account, UK & ROI residents, aged 18+ years old (registration and ID verification
-                                    required). Deposits made with Neteller/Skrill/PayPal are not valid for this
-                                    promotion.
-                                </p>
-                            </div>
-
-                            <div class="faq">
-                                <h4>What will I receive and how will I receive it?</h4>
-                                <p>
-                                    10 Free Spins at 10p per spin will be credited to new players when they register. An
-                                    additional 100 Extra Spins at 10p per spin will be credited to the account once a
-                                    deposit of £10 has been made and spent.
-                                </p>
-                                <p>Free spins can be used on the games below (or found here ) only.</p>
-                                <ul>
-                                    <li>Big Bass Return to the Races</li>
-                                    <li>Big Bass Day at the Races</li>
-                                    <li>Fishin' Frenzy Even Bigger Catch</li>
-                                    <li>Big Bass Vegas Double Down Deluxe</li>
-                                    <li>Big Piggy Bank</li>
-                                </ul>
-                            </div>
-
-                            <div class="faq">
-                                <h4>What do I need to wager before I can withdraw my winnings?</h4>
-                                <p>
-                                    0 x Wagering requirements on the 10 Free Spins. On the 100 Extra Spins players are required to wager their winnings 10 (ten) times. For example, if you win £10 from Free Spins you must wager £10 x 10 = £100
-                                </p>
-                            </div>
-
-                            <div class="faq">
-                                <h4>What games can I play to fulfil the bonus wagering requirements?</h4>
-                                <p>
-                                    The winnings from Free Spins can only be staked on Eligible Games. Stakes made on
-                                    other games will come from Cash Balance.
-                                </p>
-                            </div>
-
-                            <div class="faq">
-                                <h4>What do I need to do before I can withdraw my winnings from the bonus?</h4>
-                                <p>
-                                    You need to complete the wagering requirements. The free spins will expire 7 days
-                                    after they have been credited to your account. If wagering has not been completed by
-                                    then, the entire free spins balance (free spins + pending winnings) shall be
-                                    removed. You are entitled to withdraw your real money balance and winnings derived
-                                    from your real money at any time. However, if the wagering requirements are not
-                                    completed then players will forfeit the free spins and any pending winnings from
-                                    these free spins.
-                                </p>
-                            </div>
-
-                            <div class="faq">
-                                <h4>How are my funds used?</h4>
-                                <p>
-                                    When you play a game on which you can use this bonus, you will wager funds in the
-                                    following order:
-                                </p>
-                                <ol>
-                                    <li>Pending winnings – from play with your bonus</li>
-                                    <li>Cash – Real money from any deposits or winnings from cash stakes</li>
-                                    <li>Your bonus</li>
-                                </ol>
-                                <p>
-                                    All bonuses are for wagering purposes only. The bonus amount can never be withdrawn.
-                                </p>
-                            </div>
-
-                            <div class="faq">
-                                <h4>Where can I see my cash/match deposit bonus balance?</h4>
-                                <p>
-                                    You can see the breakdown of both cash and bonus balance by clicking on your
-                                    balance, displayed in the top right corner on desktop or a tablet device and the top
-                                    right corner on a mobile device. You can also visit the Bonus History section in My
-                                    Account to see your full bonus breakdown.
-                                </p>
-                                <p>
-                                    Free Spins and their wagering requirements can be found by visiting My Account from
-                                    the Home Page, clicking History and then ‘Bonus History’
-                                </p>
-                            </div>
-
-                            <div class="faq">
-                                <h4>Can I claim any other bonuses while this bonus is active on my account?</h4>
-                                <p>
-                                    Yes, but wagering requirements must be met for each bonus separately, in the order
-                                    the bonus was claimed.
-                                </p>
-                            </div>
+                         ${data.terms}
                         </div>
                     </div>
                 </div>
@@ -520,6 +426,7 @@ function buildHtml(data) {
   `;
 }
 
+
 export async function GET() {
   const filePath = path.join(process.cwd(), "data", "data.xlsx");
   const fileBuffer = fs.readFileSync(filePath);
@@ -536,3 +443,5 @@ console.log(firstRow)
     headers: { "Content-Type": "text/html" }
   });
 }
+
+
