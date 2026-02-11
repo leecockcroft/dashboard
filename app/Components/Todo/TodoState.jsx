@@ -86,9 +86,10 @@ e.code === "Enter" ? addTodoItem() : null
 
 }
 
-const deleteItems = ()=>{
+const deleteItemsFromList = (id)=>{
 
-  
+const removeTodo = data.filter((item => item.id !==id))
+setData(removeTodo)
 }
 
   return (
@@ -108,6 +109,8 @@ const deleteItems = ()=>{
           onChange={getEditInputTextValue}
           value={editedInputValue}
           onSubmit={updateEditedItem}
+          deleteItem={deleteItemsFromList}
+          
           />
     </div>
   );
