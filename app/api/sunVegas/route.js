@@ -94,15 +94,15 @@ function buildHtml(data) {
                 <picture class="">
                     <source
                         media="(min-width:1024px)"
-                        srcset="/library/offers/${data.foldername}/hero-bg-desktop-1920x760.webp"
+                        srcset="/library/offers/NEWIMG/${data.foldername}/hero-bg-desktop-1920x760.webp"
                     />
                     <source
                         media="(min-width:300px)"
-                        srcset="/library/offers/${data.foldername}/hero-bg-mobile-400x1100.webp"
+                        srcset="/library/offers/NEWIMG/${data.foldername}/hero-bg-mobile-400x1100.webp"
                     />
                     <img
                         class="w-full h-full lg:object-cover"
-                        src="/library/offers/${data.foldername}/hero-graphic-870x988.webp"
+                        src="/library/offers/NEWIMG/${data.foldername}/hero-graphic-870x988.webp"
                         alt="Sun Vegas"
                     />
                 </picture>
@@ -113,7 +113,7 @@ function buildHtml(data) {
                     <div class="hero-image">
                         <img
                             class="w-full max-w-sm mx-auto md:max-w-lg lg:max-w-full -mt-12 lg:-mt-20 xl:-mt-28 2xl:-mt-40"
-                            src="/library/offers/110FSOFFER/hero-graphic-870x988.webp"
+                            src="/library/offers/NEWIMG/${data.foldername}/hero-graphic-870x988.webp"
                             alt="Fishin Frenzy"
                             style="padding-top: 50px"
                         />
@@ -436,7 +436,7 @@ export async function GET() {
   const json = XLSX.utils.sheet_to_json(sheet);
 
   const firstRow = json[0]; // take the first row of the sheet
-console.log(firstRow)
+    console.log(firstRow)
   const html = buildHtml(firstRow);
 
   return new NextResponse(html, {

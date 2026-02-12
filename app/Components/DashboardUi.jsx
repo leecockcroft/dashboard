@@ -1,17 +1,9 @@
-
-
-
-
-
-
-
-
-import { BellIcon } from '@heroicons/react/24/outline'
-import TodoState from "./TodoState"
-export default function TodoUi() {
+import { BellIcon } from "@heroicons/react/24/outline";
+import TodoState from "./Todo/TodoState";
+import LandingPageState from "./LandingPage/landingPageState";
+export default function DashboardUi() {
   return (
     <>
- 
       <div className="flex min-h-full flex-col">
         <header className="relative shrink-0 bg-gray-900 dark:before:pointer-events-none dark:before:absolute dark:before:inset-0 dark:before:border-b dark:before:border-white/10 dark:before:bg-black/10">
           <div className="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -21,7 +13,10 @@ export default function TodoUi() {
               className="h-8 w-auto"
             />
             <div className="flex items-center gap-x-8">
-              <button type="button" className="-m-2.5 p-2.5 text-gray-400 hover:text-white">
+              <button
+                type="button"
+                className="-m-2.5 p-2.5 text-gray-400 hover:text-white"
+              >
                 <span className="sr-only">View notifications</span>
                 <BellIcon aria-hidden="true" className="size-6" />
               </button>
@@ -36,33 +31,25 @@ export default function TodoUi() {
             </div>
           </div>
         </header>
+        <nav>
+          <a href="/landing-page" className="text-blue-500 hover:underline">
+            Go to landing page
+          </a>
+        </nav>
 
-       <TodoState/>
         <div className="mx-auto w-full max-w-7xl grow lg:flex xl:px-2">
-           <TodoState/>
+          <TodoState />
           <div className="flex-1 xl:flex">
-            <div className="border-b border-gray-200 px-4 py-6 sm:px-6 lg:pl-8 xl:w-64 xl:shrink-0 xl:border-r xl:border-b-0 xl:pl-6 dark:border-white/10">
-                <TodoState/>
+            <div className="border-b border-gray-200 px-4 py-6 sm:px-6 lg:pl-8 xl:w-64 xl:shrink-0 xl:border-r xl:border-b-0 xl:pl-6 dark:border-white/10"></div>
+
+            <div className="px-4 py-6 sm:px-6 lg:pl-8 xl:flex-1 xl:pl-6">
+              {/* Main area */}
             </div>
-
-            <div className="px-4 py-6 sm:px-6 lg:pl-8 xl:flex-1 xl:pl-6">{/* Main area */}</div>
           </div>
 
-          <div className="shrink-0 border-t border-gray-200 px-4 py-6 sm:px-6 lg:w-96 lg:border-t-0 lg:border-l lg:pr-8 xl:pr-6 dark:border-white/10">
-            <TodoState/>
-          </div>
+          <div className="shrink-0 border-t border-gray-200 px-4 py-6 sm:px-6 lg:w-96 lg:border-t-0 lg:border-l lg:pr-8 xl:pr-6 dark:border-white/10"></div>
         </div>
       </div>
     </>
-  )
+  );
 }
-
-
-
-
-
-
-
-
-
-
