@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "browser-image-compression": "^2.0.2",
     "js-beautify": "^1.15.4",
     "mammoth": "^1.11.0",
     "mammouth": "^3.0.1",
