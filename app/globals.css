@@ -25,7 +25,14 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-ul:has(li.active)  li.notactive{
-  display:none;
+ul:has(li.active) li.notactive {
+  display: none;
 }
 
+.inputCopy {
+  background: green;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 50px;
+  margin-top: 2rem;
+}

@@ -45,22 +45,30 @@ export default function LandingPageState() {
 
   const inputFile = (e) => {
     const file = e.target.files[0];
-    const reader = new FileReader();
+    if (
+      file.type ==
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    ) {
+    } else {
+      const reader = new FileReader();
 
-    reader.onload = (event) => {
-      const data = event.target.result;
-      const workbook = XLSX.read(data, { type: "binary" });
-      const sheetName = workbook.SheetNames[0];
+      reader.onload = (event) => {
+        const data = event.target.result;
+        console.log(data);
+        const workbook = XLSX.read(data, { type: "binary" });
+        const sheetName = workbook.SheetNames[0];
 
-      const sheet = workbook.Sheets[sheetName];
-      const rows = XLSX.utils.sheet_to_json(sheet);
-      setUploadedFile(rows);
-      console.log(rows);
-    };
-    reader.readAsBinaryString(file);
+        const sheet = workbook.Sheets[sheetName];
+        const rows = XLSX.utils.sheet_to_json(sheet);
+        setUploadedFile(rows);
+        console.log(rows);
+      };
+      reader.readAsBinaryString(file);
 
-    console.log(uploadedFile);
+      console.log(uploadedFile);
+    }
   };
+
   function escapeHtml(html) {
     return html.replace(/</g, "&lt;").replace(/>/g, "&gt;");
   }
