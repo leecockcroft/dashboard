@@ -5,6 +5,8 @@
 /.pnp
 .pnp.*
 .yarn/*
+keys/*.json
+
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases

@@ -82,7 +82,7 @@ export default function Page() {
 
       <div className="relative mx-auto  h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="inputs flex gap-4">
-          <label for="file" className="inputCopy">
+          <label htmlFor="file" className="inputCopy">
             Upload copy{" "}
           </label>
           <input

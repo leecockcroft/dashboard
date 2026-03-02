@@ -2,14 +2,16 @@
 
 import beautify from "js-beautify";
 import CtaUpload from "./ctaUpload";
-import BottomHtml from "./BottomHtml";
+import BottomHtml from "./sunVegas/BottomHtmlSunVegas";
 import { useState, useEffect } from "react";
 import * as XLSX from "xlsx";
-import TopHtml from "./TopHtml";
+import TopHtml from "./sunVegas/TopHtmlSunVegas";
+import * as mammoth from "mammoth";
 export default function LandingPageState() {
   const [data, setData] = useState();
   const [html, setHtml] = useState("");
   const [bottom, setBottom] = useState("");
+  const [termsDoc, setTermsDoc] = useState(null);
 
   const [uploadedFile, setUploadedFile] = useState(null);
 
@@ -43,6 +45,8 @@ export default function LandingPageState() {
     setData("");
   };
 
+  //excel file from input option.
+
   const inputFile = (e) => {
     const file = e.target.files[0];
     if (
@@ -69,6 +73,16 @@ export default function LandingPageState() {
     }
   };
 
+  const inputTermsDoc = async (e) => {
+    const file = e.target.files[0];
+    const arrayBuffer = await file.arrayBuffer();
+    const result = await mammoth.convertToHtml({ arrayBuffer });
+    const html = result.value;
+
+    setTermsDoc(html);
+    console.log(html);
+  };
+
   function escapeHtml(html) {
     return html.replace(/</g, "&lt;").replace(/>/g, "&gt;");
   }
@@ -76,6 +90,7 @@ export default function LandingPageState() {
   return (
     <main className="p-4">
       <input type="file" id="file" onChange={inputFile} />
+      <input type="file" id="file" onChange={inputTermsDoc} />
       <button
         className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
         onClick={clear}
@@ -99,9 +114,18 @@ export default function LandingPageState() {
       {/* <pre style={{ whiteSpace: "pre-wrap" }}> {    formattedBottom} </pre> */}
 
       <h2>ttt</h2>
-      {uploadedFile && (
-        <pre style={{ whiteSpace: "pre-wrap" }}>{TopHtml(uploadedFile[0])}</pre>
-      )}
+      <div className="flex">
+        <div>
+          {uploadedFile && (
+            <pre style={{ whiteSpace: "pre-wrap" }}>
+              {TopHtml(uploadedFile[0])}
+            </pre>
+          )}
+        </div>
+        <div>
+          {termsDoc && <pre style={{ whiteSpace: "pre-wrap" }}>{termsDoc}</pre>}
+        </div>
+      </div>
     </main>
   );
 }

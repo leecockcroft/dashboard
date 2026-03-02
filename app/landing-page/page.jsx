@@ -1,9 +1,24 @@
-import LandingPageState from "../Components/LandingPage/landingPageState";
-import landingPageState from "../Components/LandingPage/landingPageState";
-export default function Page() {
+"use client";
+
+import { useState, useEffect } from "react";
+export default function LandingPageUpload() {
+  const [data, setData] = useState();
+
+  const getData = async (e) => {
+    const info = await fetch("/api/sunVegas");
+    const res = await info.json();
+    setData(res);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  console.log(data, "DATA");
+
   return (
-    <main>
-      <LandingPageState />
-    </main>
+    <div>
+      <h2>{data?.ribbon1[0]}</h2>
+    </div>
   );
 }
